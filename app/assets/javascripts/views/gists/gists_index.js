@@ -1,5 +1,7 @@
 Gists.Views.GistsIndex = Backbone.View.extend({
 
+  tagName: 'table',
+
   initialize: function (params) {
     var that = this;
     this.favorites = params.favorites;
@@ -17,9 +19,9 @@ Gists.Views.GistsIndex = Backbone.View.extend({
 
   render: function () {
     var that = this;
-    var template = JST["gists/index"]();
+    var indexTemplate = JST["gists/index"]();
 
-    that.$el.html(template);
+    that.$el.html(indexTemplate);
 
     that.collection.each(function(gist) {
       var gistDetail = new Gists.Views.GistDetail({
@@ -28,7 +30,6 @@ Gists.Views.GistsIndex = Backbone.View.extend({
       });
       that.$el.append(gistDetail.render().$el);
     })
-
     return that;
   },
 

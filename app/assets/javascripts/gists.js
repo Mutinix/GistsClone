@@ -15,6 +15,9 @@ window.Gists = {
 
   installSidebar: function($sidebar, gists) {
     var that = this;
+    var formView = new Gists.Views.GistForm({
+      collection: gists
+    });
 
     var favorites = [];
     $.getJSON('/favorites', function(resp) {
@@ -24,6 +27,7 @@ window.Gists = {
         favorites: favorites
       });
       $sidebar.html(indexView.render().$el);
+      $sidebar.append(formView.render().$el);
     });
 
 
