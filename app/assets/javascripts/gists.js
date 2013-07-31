@@ -6,7 +6,6 @@ window.Gists = {
   initialize: function($rootEl, data) {
     var that = this;
     var gists = new Gists.Collections.Gists(data);
-
     new Gists.Routers.Gists($rootEl, gists);
     Backbone.history.start();
 }};
