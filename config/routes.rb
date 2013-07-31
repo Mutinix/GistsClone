@@ -3,6 +3,7 @@ SessionsTemplate::Application.routes.draw do
   resource :session, :only => [:new, :create, :destroy]
 
   resources :gists, only: [:index, :create] do
+    resources :gistfiles, only: [:create, :destroy, :index]
     resource :favorite, :only => [:create, :destroy]
   end
 
