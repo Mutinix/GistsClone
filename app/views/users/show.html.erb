@@ -1,5 +1,8 @@
 <h1><%= @user.username %>'s Page </h1>
 
+<div id="sidebar" style="float:left; margin:2%; width:26%; "></div>
+<div id="content" style="float:right; margin:2%; width:66%;"></div>
+
 <script type="application/json" id="bootstrapped_data">
   <%= @gists.to_json.html_safe %>
 </script>

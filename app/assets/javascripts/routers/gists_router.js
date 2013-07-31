@@ -10,14 +10,9 @@ Gists.Routers.Gists = Backbone.Router.extend({
   },
 
   index: function () {
-    console.log("Routed here!");
     var that = this;
 
-    var indexView = new Gists.Views.GistsIndex({
-      collection: that.gists
-    });
-
-    that.$rootEl.html(indexView.render().$el);
+    that.$el.empty();
   }
 
 });
