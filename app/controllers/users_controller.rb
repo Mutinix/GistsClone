@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
+  respond_to :json
+  respond_to :html, only: [:new, :show]
 
   before_filter :redirect_logged_in_user, :only => [:new]
 
   def show
     @user = User.find(params[:id])
+    @gists = @user.gists
+
+    respond_with @gists, location: nil
   end
 
   def new
