@@ -1,12 +1,17 @@
 Gists.Views.GistDetail = Backbone.View.extend({
 
-  tagName: 'li',
+  initialize: function (params) {
+    this.favorite = params.favorite;
+  },
+
+  tagName: 'tr',
 
   render: function() {
     var that = this;
 
     var template = JST["gists/detail"]({
-      gist: that.model
+      gist: that.model,
+      favorite: that.favorite
     });
 
     that.$el.html(template);

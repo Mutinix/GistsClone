@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+names = %w(will bill phil)
+titles = %w(gist list pissed)
+
+names.each {|name| User.create(username: name, password: "password")}
+titles.each {|title| Gist.create(title: title, user_id: 1)}

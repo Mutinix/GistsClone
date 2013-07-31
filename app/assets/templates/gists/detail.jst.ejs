@@ -1,1 +1,9 @@
-<%= gist.escape('title')%>
+<td><%= gist.escape('title')%></td>
+<% console.log(favorite)%>
+<td class="button">
+<% if (favorite) { %>
+  <button class="unfavorite" data-id="<%= gist.escape("id") %>">Unfavorite</button>
+<% } else { %>
+  <button class="favorite" data-id="<%= gist.escape("id") %>">Favorite</button>
+<% } %>
+</td>

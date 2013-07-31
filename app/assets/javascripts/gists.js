@@ -16,11 +16,17 @@ window.Gists = {
   installSidebar: function($sidebar, gists) {
     var that = this;
 
-    var indexView = new Gists.Views.GistsIndex({
-      collection: gists
+    var favorites = [];
+    $.getJSON('/favorites', function(resp) {
+      _(resp).each(function (fave) {favorites.push(fave);});
+      var indexView = new Gists.Views.GistsIndex({
+        collection: gists,
+        favorites: favorites
+      });
+      $sidebar.html(indexView.render().$el);
     });
 
-    $sidebar.html(indexView.render().$el);
+
   }
 };
 
