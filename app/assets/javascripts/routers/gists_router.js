@@ -12,7 +12,7 @@ Gists.Routers.Gists = Backbone.Router.extend({
   index: function () {
     var that = this;
 
-    that.$el.empty();
+    that.$rootEl.empty();
   }
 
 });
